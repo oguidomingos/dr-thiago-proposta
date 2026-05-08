@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta Comercial — Dr. Thiago Cerqueira | Pulso</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --navy: #0B1E2D;
+      --blue: #0B3D5C;
+      --blue-mid: #1B5E8A;
+      --gold: #C4A76E;
+      --gold-light: #d4b97e;
+      --slate: #2C3E50;
+      --light: #F5F5F5;
+      --glass: rgba(11, 30, 45, 0.85);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--glass); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(196, 167, 110, 0.2);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; font-weight: 600; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--light); text-decoration: none; font-size: 0.85rem; font-weight: 400; opacity: 0.7; transition: opacity 0.3s; }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 50%, var(--slate) 100%);
+      padding: 6rem 2rem 4rem; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 200%;
+      background: radial-gradient(ellipse, rgba(196, 167, 110, 0.06) 0%, transparent 70%);
+    }
+    .hero-content { max-width: 800px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block; background: rgba(196, 167, 110, 0.15); border: 1px solid rgba(196, 167, 110, 0.3);
+      color: var(--gold); padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.75rem;
+      font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--light); margin-bottom: 1rem; line-height: 1.2; }
+    .hero h1 span { color: var(--gold); }
+    .hero p { font-size: 1.1rem; color: rgba(245, 245, 245, 0.7); max-width: 600px; margin: 0 auto 2rem; }
+    .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; }
+    .hero-stat { text-align: center; }
+    .hero-stat .number { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); font-weight: 700; }
+    .hero-stat .label { font-size: 0.75rem; color: rgba(245, 245, 245, 0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.25rem; }
+
+    /* Section base */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--light); margin-bottom: 0.5rem;
+    }
+    .section-subtitle { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 1rem; }
+    .section-desc { color: rgba(245, 245, 245, 0.6); max-width: 650px; margin-bottom: 3rem; }
+
+    /* Profile section */
+    .profile { background: linear-gradient(180deg, var(--navy) 0%, rgba(11, 61, 92, 0.3) 100%); }
+    .profile-card {
+      display: grid; grid-template-columns: 200px 1fr; gap: 3rem; align-items: center;
+      background: rgba(27, 94, 138, 0.1); border: 1px solid rgba(27, 94, 138, 0.3);
+      border-radius: 20px; padding: 2.5rem; margin-bottom: 3rem;
+    }
+    .profile-pic {
+      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--gold); box-shadow: 0 0 40px rgba(196, 167, 110, 0.2);
+    }
+    .profile-info h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .profile-info .specialty { color: var(--gold); font-size: 0.95rem; margin-bottom: 1rem; }
+    .profile-bio { color: rgba(245, 245, 245, 0.7); font-size: 0.9rem; line-height: 1.8; }
+    .profile-meta { display: flex; gap: 2rem; margin-top: 1.5rem; }
+    .profile-meta-item { text-align: center; }
+    .profile-meta-item .val { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+    .profile-meta-item .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(245, 245, 245, 0.5); }
+
+    /* Instagram grid */
+    .insta-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 2rem;
+    }
+    .insta-grid img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px;
+      transition: transform 0.3s, opacity 0.3s; cursor: pointer;
+    }
+    .insta-grid img:hover { transform: scale(1.05); opacity: 0.85; }
+
+    /* Deliverables */
+    .deliverables { background: var(--navy); }
+    .deliv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .deliv-card {
+      background: rgba(27, 94, 138, 0.08); border: 1px solid rgba(27, 94, 138, 0.2);
+      border-radius: 16px; padding: 2rem; transition: border-color 0.3s, transform 0.3s;
+    }
+    .deliv-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .deliv-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .deliv-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .deliv-card p { color: rgba(245, 245, 245, 0.6); font-size: 0.85rem; }
+    .deliv-card ul { list-style: none; margin-top: 1rem; }
+    .deliv-card li { padding: 0.3rem 0; font-size: 0.85rem; color: rgba(245, 245, 245, 0.7); }
+    .deliv-card li::before { content: "\2713 "; color: var(--gold); font-weight: 700; margin-right: 0.5rem; }
+
+    /* Post models gallery */
+    .models { background: linear-gradient(180deg, var(--navy), rgba(11, 61, 92, 0.2)); }
+    .models-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .model-card {
+      background: rgba(27, 94, 138, 0.1); border: 1px solid rgba(27, 94, 138, 0.2);
+      border-radius: 12px; padding: 1.2rem; text-align: center; transition: all 0.3s;
+    }
+    .model-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .model-card a {
+      display: inline-block; background: var(--gold); color: var(--navy); padding: 0.4rem 1rem;
+      border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem; margin-top: 0.5rem;
+    }
+    .model-card h4 { color: var(--gold); font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .model-card p { color: rgba(245,245,245,0.5); font-size: 0.75rem; }
+
+    /* Pricing */
+    .pricing { background: var(--navy); text-align: center; }
+    .price-box {
+      max-width: 500px; margin: 0 auto; background: linear-gradient(135deg, rgba(27, 94, 138, 0.15), rgba(196, 167, 110, 0.08));
+      border: 2px solid var(--gold); border-radius: 24px; padding: 3rem 2.5rem;
+    }
+    .price-box .plan-name { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 0.5rem; }
+    .price-box .price { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--light); margin-bottom: 0.25rem; }
+    .price-box .price span { font-size: 1.2rem; color: rgba(245,245,245,0.5); }
+    .price-box .period { color: rgba(245,245,245,0.5); font-size: 0.85rem; margin-bottom: 2rem; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+    .price-features li { padding: 0.5rem 0; border-bottom: 1px solid rgba(245,245,245,0.05); font-size: 0.9rem; color: rgba(245,245,245,0.8); }
+    .price-features li::before { content: "\2713 "; color: var(--gold); font-weight: 700; margin-right: 0.5rem; }
+    .cta-btn {
+      display: inline-block; background: var(--gold); color: var(--navy); padding: 1rem 2.5rem;
+      border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .cta-btn:hover { background: var(--gold-light); transform: scale(1.05); }
+
+    /* Content pillars */
+    .pillars { background: linear-gradient(180deg, rgba(11, 61, 92, 0.2), var(--navy)); }
+    .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .pillar-card {
+      background: rgba(27, 94, 138, 0.08); border: 1px solid rgba(27, 94, 138, 0.15);
+      border-radius: 16px; padding: 1.8rem; border-left: 3px solid var(--gold);
+    }
+    .pillar-card h4 { color: var(--gold); margin-bottom: 0.5rem; font-size: 1rem; }
+    .pillar-card p { color: rgba(245,245,245,0.6); font-size: 0.85rem; }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 3rem 2rem; border-top: 1px solid rgba(27, 94, 138, 0.2);
+      background: var(--navy);
+    }
+    .footer p { color: rgba(245,245,245,0.3); font-size: 0.8rem; }
+    .footer a { color: var(--gold); text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .profile-card { grid-template-columns: 1fr; text-align: center; }
+      .profile-pic { margin: 0 auto; width: 150px; height: 150px; }
+      .profile-meta { justify-content: center; }
+      .hero-stats { flex-direction: column; gap: 1.5rem; }
+      .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="#" class="nav-brand">Pulso</a>
+  <ul class="nav-links">
+    <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#entregas">Entregas</a></li>
+    <li><a href="#modelos">Modelos</a></li>
+    <li><a href="#pilares">Pilares</a></li>
+    <li><a href="#investimento">Investimento</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Proposta Comercial</div>
+    <h1>Dr. Thiago <span>Cerqueira</span></h1>
+    <p>Assessoria completa de marketing digital para fortalecer sua autoridade como ortopedista e traumatologista, atrair pacientes de convenios estrategicos e transformar sua presenca digital.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">20</div>
+        <div class="label">Entregas/Mes</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">R$2.700</div>
+        <div class="label">Investimento Mensal</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">3</div>
+        <div class="label">Meses de Teste</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Profile -->
+<section class="profile" id="perfil">
+  <div class="container">
+    <div class="section-subtitle">Perfil do Cliente</div>
+    <div class="profile-card">
+      <img src="instagram/profile.jpg" alt="Dr. Thiago Cerqueira" class="profile-pic">
+      <div class="profile-info">
+        <h3>Dr. Thiago Cerqueira</h3>
+        <div class="specialty">Ortopedista e Traumatologista | Tratamento da Dor | Medicina Regenerativa</div>
+        <div class="profile-bio">
+          CRMDF 18843 | RQE 18832<br>
+          Foco em autoridade digital e captacao de pacientes de convenios estrategicos.
+          Possui estudio profissional em casa com camera, lentes e iluminacao de alta qualidade.
+        </div>
+        <div class="profile-meta">
+          <div class="profile-meta-item"><div class="val">641</div><div class="lbl">Seguidores</div></div>
+          <div class="profile-meta-item"><div class="val">214</div><div class="lbl">Posts</div></div>
+          <div class="profile-meta-item"><div class="val">5</div><div class="lbl">Destaques</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-subtitle">Feed Atual — @drthiagocerqueira</div>
+    <div class="insta-grid">
+      <img src="instagram/post-01.jpg" alt="Post 1">
+      <img src="instagram/post-02.jpg" alt="Post 2">
+      <img src="instagram/post-03.jpg" alt="Post 3">
+      <img src="instagram/post-04.jpg" alt="Post 4">
+      <img src="instagram/post-05.jpg" alt="Post 5">
+      <img src="instagram/post-06.jpg" alt="Post 6">
+      <img src="instagram/post-07.jpg" alt="Post 7">
+      <img src="instagram/post-08.jpg" alt="Post 8">
+      <img src="instagram/post-09.jpg" alt="Post 9">
+      <img src="instagram/post-10.jpg" alt="Post 10">
+      <img src="instagram/post-11.jpg" alt="Post 11">
+      <img src="instagram/post-12.jpg" alt="Post 12">
+    </div>
+  </div>
+</section>
+
+<!-- Deliverables -->
+<section class="deliverables" id="entregas">
+  <div class="container">
+    <div class="section-subtitle">Escopo Completo</div>
+    <h2 class="section-title">O que esta incluso</h2>
+    <p class="section-desc">Plano essencial com 20 entregaveis audiovisuais mensais, trafego pago, landing page e gestao completa do Instagram.</p>
+
+    <div class="deliv-grid">
+      <div class="deliv-card">
+        <div class="deliv-icon">🎬</div>
+        <h3>Producao Audiovisual</h3>
+        <p>Conteudo de alta qualidade para feed e stories</p>
+        <ul>
+          <li>Ate 15 Reels editados/mes</li>
+          <li>3 Stories editados/semana</li>
+          <li>1 Carrossel fixado (ate 5 paginas)</li>
+          <li>Legendas otimizadas com CTA</li>
+          <li>Animacoes IA (anatomia, procedimentos)</li>
+        </ul>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-icon">📱</div>
+        <h3>Gestao Instagram</h3>
+        <p>Reestruturacao completa da vitrine digital</p>
+        <ul>
+          <li>Bio otimizada para conversao</li>
+          <li>Destaques com capas profissionais</li>
+          <li>Grid estrategico planejado</li>
+          <li>Hashtags segmentadas por tema</li>
+          <li>Calendario editorial mensal</li>
+        </ul>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-icon">🎯</div>
+        <h3>Trafego Pago</h3>
+        <p>Captacao ativa de pacientes de convenios</p>
+        <ul>
+          <li>Meta Ads (Instagram + Facebook)</li>
+          <li>Google Ads (Search + Display)</li>
+          <li>Segmentacao por convenio</li>
+          <li>Funil completo (topo, meio, fundo)</li>
+          <li>Relatorios mensais de performance</li>
+        </ul>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-icon">🌐</div>
+        <h3>Landing Page</h3>
+        <p>Pagina de conversao otimizada</p>
+        <ul>
+          <li>Design premium alinhado a identidade</li>
+          <li>Formulario de agendamento</li>
+          <li>Responsiva (mobile-first)</li>
+          <li>SEO basico configurado</li>
+          <li>Integracao WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Content Pillars -->
+<section class="pillars" id="pilares">
+  <div class="container">
+    <div class="section-subtitle">Estrategia de Conteudo</div>
+    <h2 class="section-title">Pilares Editoriais</h2>
+    <p class="section-desc">Conteudo estruturado em 6 pilares para maximizar autoridade, engajamento e conversao.</p>
+
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <h4>Mitos & Verdades</h4>
+        <p>"Fibromialgia e frescura?", "Infiltracao doi?" — conteudo que gera engajamento alto e posiciona como autoridade.</p>
+      </div>
+      <div class="pillar-card">
+        <h4>Educativo / Patologia</h4>
+        <p>Osteoporose, Cervical, Lombalgia, Artrose, Dor no Joelho — educacao que gera confianca e procura.</p>
+      </div>
+      <div class="pillar-card">
+        <h4>Procedimentos</h4>
+        <p>Infiltracao, Ondas de Choque, Medicina Regenerativa, Bloqueios de Nervos — com animacoes IA.</p>
+      </div>
+      <div class="pillar-card">
+        <h4>Hook + Estatisticas</h4>
+        <p>Dados impactantes com visual dourado/anatomico. Numeros que param o scroll e geram compartilhamento.</p>
+      </div>
+      <div class="pillar-card">
+        <h4>Listicle</h4>
+        <p>"5 habitos que destroem suas articulacoes" — formato que performa bem em saves e compartilhamentos.</p>
+      </div>
+      <div class="pillar-card">
+        <h4>Oportunidade</h4>
+        <p>Comentarios sobre fatos reais/noticias para surfar trending topics com autoridade tecnica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Post Models -->
+<section class="models" id="modelos">
+  <div class="container">
+    <div class="section-subtitle">Referencias Visuais</div>
+    <h2 class="section-title">Modelos de Post</h2>
+    <p class="section-desc">14 templates premium desenvolvidos para o feed do Dr. Thiago. Paleta azul/dourado, tipografia serifada, ilustracoes anatomicas IA.</p>
+
+    <div class="models-grid">
+      <div class="model-card"><h4>Modelo 01</h4><p>Autoridade medica</p><a href="modelos-post/modelo-post-01.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 02</h4><p>Hook estatistico</p><a href="modelos-post/modelo-post-02.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 03</h4><p>Carrossel educativo</p><a href="modelos-post/modelo-post-03.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 04</h4><p>Infografico procedimento</p><a href="modelos-post/modelo-post-04.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 05</h4><p>Mito vs verdade</p><a href="modelos-post/modelo-post-05.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 06</h4><p>Listicle habitos</p><a href="modelos-post/modelo-post-06.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 07</h4><p>Patologia + empatia</p><a href="modelos-post/modelo-post-07.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 08</h4><p>Tratamento spotlight</p><a href="modelos-post/modelo-post-08.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 09</h4><p>Medicina regenerativa</p><a href="modelos-post/modelo-post-09.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 10</h4><p>Anatomia + hook</p><a href="modelos-post/modelo-post-10.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 11</h4><p>Fascite/ondas de choque</p><a href="modelos-post/modelo-post-11.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 12</h4><p>Fibromialgia</p><a href="modelos-post/modelo-post-12.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 13</h4><p>Infiltracao</p><a href="modelos-post/modelo-post-13.pdf" target="_blank">Ver PDF</a></div>
+      <div class="model-card"><h4>Modelo 14</h4><p>Prova social</p><a href="modelos-post/modelo-post-14.pdf" target="_blank">Ver PDF</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="investimento">
+  <div class="container">
+    <div class="section-subtitle">Investimento</div>
+    <h2 class="section-title" style="margin-bottom: 2rem;">Plano Essencial</h2>
+
+    <div class="price-box">
+      <div class="plan-name">Assessoria Completa</div>
+      <div class="price">R$2.700<span>/mes</span></div>
+      <div class="period">Periodo de teste: 3 meses</div>
+      <ul class="price-features">
+        <li>20 entregaveis audiovisuais/mes</li>
+        <li>Ate 15 video Reels editados</li>
+        <li>1 Carrossel fixado (ate 5 paginas)</li>
+        <li>3 Stories editados por semana</li>
+        <li>Destaques com capas profissionais</li>
+        <li>Legendas otimizadas com hashtags</li>
+        <li>Trafego pago: Meta Ads + Google Ads</li>
+        <li>Landing page de conversao</li>
+        <li>Gestao completa do Instagram</li>
+        <li>Grade editorial mensal</li>
+        <li>Relatorios de performance</li>
+      </ul>
+      <a href="https://wa.me/5561996079061" class="cta-btn">Iniciar Parceria</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>Proposta elaborada por <a href="#">Pulso</a> | Assessoria de Marketing para Clinicas</p>
+  <p style="margin-top: 0.5rem;">Dr. Thiago Cerqueira — Ortopedia & Traumatologia | CRMDF 18843</p>
+</footer>
+
+</body>
+</html>
